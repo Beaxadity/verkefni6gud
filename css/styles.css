@@ -1,0 +1,372 @@
+*, *:before, *:after {
+  box-sizing: border-box; 
+}
+/*heimild: https://gridbyexample.com/examples/example13/ */
+
+/* ====== GRID Area ====== */
+
+.topnav {
+grid-area: topnav; 
+}
+header {
+grid-area: header;
+}
+.content {
+grid-area: content; 
+}
+footer {
+grid-area: footer;
+}
+/* dálkar í content */
+.midja {
+grid-area: midja; 
+}
+.vinstri {
+grid-area: vinstri;
+}
+.haegri {
+grid-area: haegri; 
+}
+.einn{
+  grid-area: einn;
+}
+.tveir{
+  grid-area: tveir;
+}
+.trir{
+  grid-area: trir;
+}
+.fjorir{
+  grid-area: fjorir;
+}
+/* ====== GRID Template Areas ===== */
+
+body {
+display: grid;
+grid-gap: 0; /* bil á milli dálka */
+grid-template-areas:
+  "header"
+  "content"
+  "footer"
+  "topnav";
+}
+
+.content {
+display: grid; /* grid erfist til barna (child element only) */
+grid-gap: 0;
+grid-template-areas:
+  "midja"    
+  "vinstri"
+  "haegri"
+}
+
+/* ====== Base litir + padding ====== */
+
+body {
+line-height: 1.5em;
+}
+.topnav {
+background: #1c2d1c; 
+}
+header {
+background:moccasin; 
+}
+footer {
+background: gainsboro; 
+}
+.midja {
+background: deepskyblue; 
+}
+.vinstri {
+background: magenta; 
+}
+ 
+.haegri {
+background: darkslategrey; 
+}
+header,
+footer,
+.midja,
+.vinstri, 
+.haegri {
+padding: 1em; 
+}
+
+/* ====== leturstílar ====== */
+
+header h1 {
+color: #fff;
+line-height: 1.2;
+font-weight: normal;
+}
+.midja h2 {
+margin: .7em 0 .8em 0;
+}
+.midja h4 {
+text-align: justify;
+margin: .4em 0;
+}
+.midja p {
+text-align: justify;
+}
+
+/* ========================================
+Efnisyfirlit (mobile)
+======================================== */
+.topnav ul{
+background: #1c2d1c; 
+}
+.topnav input {
+display: none;
+}
+
+.topmenu {
+display: block;
+/*position: fixed;*/
+padding: 0;
+margin: 0;
+list-style: none; 
+
+}
+.topmenu li {
+border: 0;
+border-bottom: 1px solid lime; 
+padding: 0;
+margin:0;
+}
+.topmenu li {
+border: 0;
+padding: 0;
+border-bottom: 1px solid lime; 
+}
+.topmenu a {
+display: block;     /* ath! */
+color: white;
+text-decoration: none;
+text-align: center;
+padding: .4em 1em; 
+}
+.topmenu a:hover,
+.topmenu a:active,
+.virkur {
+color: black !important;
+background-color: lime;
+}
+
+/* =======================================
+*  myndvinnsla  *
+======================================== */
+
+/*  myndir <img> alltaf í 100% stærð munið að vinna og 
+  þjappa myndir í photoshop ! */
+
+img, video {
+max-width: 100%;
+height: auto;
+}
+img {
+display: block; /* losna við inline "whitespace" */
+}
+
+figure {
+margin:0;   /* ath! í normalize er sjálsfgefið margin 40px. */
+border: 1px solid orange;
+}
+.myndabox {
+width: 162px;/* ath! klasinn er með fasta breidd*/
+}
+
+/*  ========================================
+Viðmið - breakpoints 30em = 480px + 
+========================================*/
+
+/*  ========================================
+Viðmið - breakpoints 37.5em = 600px + 
+========================================*/
+
+@media screen and (min-width: 37.5em) {
+  body {
+    display: grid;
+    grid-gap: 0; /* bil á milli dálka */
+    grid-template-areas:
+      "topnav"
+      "header"
+      "content"
+      "footer";
+    }
+    header {
+      background:rebeccapurple; 
+      }
+      footer {
+      background: forestgreen; 
+      }
+      .midja {
+      background: lavender; 
+      }
+      .vinstri {
+      background:cadetblue; 
+      }
+       
+      .haegri {
+      background: chocolate; 
+      }
+  .topnav ul{
+    background: black; 
+    }
+    .topnav input {
+    display: none;
+    }
+    
+    .topmenu {
+    text-align: center;
+    /*position: fixed;*/
+    padding: 0;
+    margin: 0;
+    list-style: none; 
+    
+    }
+    .topmenu li {
+    display:inline-block;
+    border: 0;
+    border-bottom: 1px solid firebrick; 
+    padding: 0;
+    margin:0;
+    }
+    .topmenu li {
+    border: 0;
+    padding: 0;
+    border-bottom: 1px solid firebrick; 
+    }
+    .topmenu a {
+    display: block;     /* ath! */
+    color: gainsboro;
+    text-decoration: none;
+    text-align: center;
+    padding: .4em 1em; 
+    }
+    .topmenu a:hover,
+    .topmenu a:active,
+    .virkur {
+    color: goldenrod !important;
+    background-color: firebrick;
+    }
+
+  .content {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "topnav topnav"
+    "haegri midja"
+    "vinstri midja";
+    background: violet;
+  }
+  .myndabox{
+    width:318px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "einn tveir"
+    "trir fjorir";
+    background: royalblue;
+  } 
+}
+/* ========================================
+Viðmið - breakpoints 48em = 760px +
+======================================== */
+
+@media screen and (min-width: 60em) { 
+  body {
+    display: grid;
+    grid-gap: 0; /* bil á milli dálka */
+    grid-template-areas:
+      "topnav"
+      "header"
+      "content"
+      "footer";
+    } 
+    header {
+      background:chartreuse; 
+      }
+      footer {
+      background: cornflowerblue; 
+      }
+      .midja {
+      background: cornsilk; 
+      }
+      .vinstri {
+      background: silver; 
+      }
+       
+      .haegri {
+      background: sienna; 
+      }
+  .topnav ul{
+    background: black; 
+    }
+    .topnav input {
+    display: none;
+    }
+    
+    .topmenu {
+    text-align: center;
+    /*position: fixed;*/
+    padding-left:0;
+    margin: 0;
+    list-style: none; 
+    
+    }
+    .topmenu li {
+    display: inline-block;
+    border: 0;
+    border-bottom: 1px solid magenta; 
+    padding: 0;
+    margin:0;
+    }
+    .topmenu li {
+    border: 0;
+    padding: 0;
+    border-bottom: 1px solid magenta; 
+    }
+    .topmenu a {
+    display: block;     /* ath! */
+    color: floralwhite;
+    text-decoration: none;
+    text-align: center;
+    padding: .4em 1em; 
+    }
+    .topmenu a:hover,
+    .topmenu a:active,
+    .virkur {
+    color: black !important;
+    background-color: magenta;
+    }
+    .content {
+      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+      "topnav topnav topnav"
+      "vinstri midja haegri";
+      background: khaki;
+    } 
+    .myndabox{
+      width:486px;
+      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+      "einn tveir trir fjorir";
+      background: honeydew;
+    }
+
+      /*færi topnav efst á síðu*/
+  }
+
+  /* ========================================
+  Viðmið - breakpoints 60em = 960px +
+  ======================================== */
+body{
+  width:100%
+}

@@ -1,0 +1,18 @@
+body{
+    background: orange;
+}
+
+@media(min-width:400px){
+    body{
+        background: darkmagenta;
+    }
+}
+
+.grid1{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "nav nav nav nav";
+    background-color: black;
+}
